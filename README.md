@@ -70,20 +70,19 @@ If no box can safely contain the order, the system returns an explanation of why
 1. git clone https://github.com/DiYadav/box-selection-system
    cd box-selection-system
 
-
 2. Create a virtual environment
 
-python -m venv venv
+3. python -m venv venv
 venv\Scripts\activate
 
 Linux / macOS
 python3 -m venv venv
 source venv/bin/activate
 
-3. Install dependencies
+4. Install dependencies
 pip install -r requirements.txt
 
-4. Apply database migrations
+5. Apply database migrations
 python manage.py migrate
 
 6. Run the development server
@@ -91,3 +90,50 @@ python manage.py runserver
 
 7.Run all test cases in terminal
 pytest -v
+
+
+# Project Structure
+
+```text
+box-selection-system/
+│
+├── config/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── core/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── services.py
+│   ├── urls.py
+│   ├── views.py
+│   │
+│   └── migrations/
+│       ├── 0001_initial.py
+│       ├── 0002_box.py
+│       ├── 0003_order_orderitem.py
+│       ├── 0004_alter_box_internal_height_cm_and_more.py
+│       └── __init__.py
+│
+├── tests/
+│   ├── __init__.py
+│   ├── test_services.py
+│   ├── test_orders.py
+│   └── test_api.py
+│
+├── .gitignore
+├── manage.py
+├── pytest.ini
+├── requirements.txt
+│
+├── README.md
+├── AI_USAGE.md
+├── WHAT_I_LEARNED.md
+├── CHAT_TRANSCRIPT.md
+└── TEST_OUTPUT.md
